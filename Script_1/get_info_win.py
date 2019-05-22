@@ -3,6 +3,7 @@
 #    Life is short , you need Python !!!
 #    Kelvin® kelvin.su@qq.com , Version 1.0 for Python 3.7.2 2019-05-21
 """
+    此程序在Windows10、python3.7.2上测试成功
     paramiko模块登陆，并获取信息，程序运行需要两个文件，分别为Device_List.db和Command_list.conf
     Device_List.db 格式： 序号，IP地址，主机名，ssh端口号，用户名，密码    分隔用英文逗号(,)
     Command_List.conf 格式：每一行一个命令集，文件结尾不能有空行
