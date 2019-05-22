@@ -15,6 +15,7 @@ NowTime=time.strftime("%H:%M:%S", time.localtime())
 Separate_start="**************************** ["
 Separate_end="] ****************************"
 
+#设备返回信息保存目录
 file_path='D:/test/'
 
 def ssh_login(HostIPadd, HostName, HostPort, HostUser, HostPass):
@@ -30,17 +31,18 @@ def ssh_login(HostIPadd, HostName, HostPort, HostUser, HostPass):
                         "信息获取时间：【"+NowDate+" "+NowTime+"】"+"\n")
         ssh = paramiko.SSHClient()
         ssh._transport = transport
-
+        
+        #设备命令列表
         command_name = open("D:/config/Command_List.conf",mode='r',encoding="utf-8")
         command_list = command_name.readlines()
         command_lens = len(command_list)
         for i in range(len(command_list)):
             file_name.write(Separate_start+command_list[i].strip('\n')+Separate_end+"\n")
-            #print(Separate_start+command_list[i].strip('\n')+Separate_end)
+            print(Separate_start+command_list[i].strip('\n')+Separate_end)
             stdin,stdout,stderr=ssh.exec_command(command_list[i].strip('\n'))
             print("    获取主机信息命令：[ %s ]"% command_list[i].strip('\n'))
             command_out = stdout.read().decode(encoding='utf-8')
-            #print(command_out)
+            print(command_out)
             file_name.write(command_out)
         command_name.close()
         
@@ -51,6 +53,7 @@ def ssh_login(HostIPadd, HostName, HostPort, HostUser, HostPass):
         print("Error !!!")
 
 if __name__ == "__main__":
+    #设备地址、帐号等信息
     file_db = open("D:/config/Device_List.db",mode='r',encoding="utf-8")
     while 1:
         line = file_db.readline()
@@ -66,23 +69,3 @@ if __name__ == "__main__":
         #print(HostNo, HostIPadd, HostName, HostPort, HostUser, HostPass)
         ssh_login(HostIPadd, HostName, HostPort, HostUser, HostPass)
     pass
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
