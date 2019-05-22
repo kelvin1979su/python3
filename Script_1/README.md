@@ -1,4 +1,11 @@
 ## gat_info.py
+
+gat_info_Win.py
+在 Windows10 专业版 + Python 3.7.2环境上测试成功
+
+gat_info_Linux.py
+在 CentOS 7 1810 + Python3.7.3 环境上测试成功
+
 本程序使用paramiko模块用ssh方式登录设备，并执行Command_List.conf内的命令，并将返回值保存在file_path变量的文件夹下。保存的文件命名为[**IP地址_主机名_当天日期.txt**]
 
 程序运行需要两个文件，分别为Device_List.db和Command_list.conf
