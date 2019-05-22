@@ -1,4 +1,4 @@
-# python3
+# python3 使用paramiko模块登录设备执行命令
 本程序使用paramiko模块用ssh方式登录设备，并执行Command_List.conf内的命令，并将返回值保存在file_path变量的文件夹下。保存的文件命名为[IP地址_主机名_当天日期.txt]
 
 
